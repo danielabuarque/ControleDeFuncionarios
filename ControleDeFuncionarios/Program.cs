@@ -1,4 +1,5 @@
 ﻿using ControleDeFuncionarios.Controllers;
+using ControleDeFuncionarios.Interfaces;
 using ControleDeFuncionarios.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;

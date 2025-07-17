@@ -1,13 +1,7 @@
-﻿using ControleDeFuncionarios.Configurations;
-using ControleDeFuncionarios.Entities;
+﻿using ControleDeFuncionarios.Entities;
+using ControleDeFuncionarios.Interfaces;
 using Dapper;
-using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControleDeFuncionarios.Repositories
 {
@@ -29,8 +23,6 @@ namespace ControleDeFuncionarios.Repositories
                         INSERT INTO FUNCIONARIO (ID, NOME, CPF, MATRICULA, DATA_ADMISSAO, EMPRESA_ID) 
                         VALUES (@Id, @Nome, @Cpf, @Matricula, @DataAdmissao, @EmpresaId)
                         ";
-
-            var config = new DBConfiguration();
 
             await _connection.ExecuteAsync(query, funcionario);
         }

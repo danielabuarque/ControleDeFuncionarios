@@ -1,5 +1,5 @@
-﻿using ControleDeFuncionarios.Configurations;
-using ControleDeFuncionarios.Entities;
+﻿using ControleDeFuncionarios.Entities;
+using ControleDeFuncionarios.Interfaces;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;

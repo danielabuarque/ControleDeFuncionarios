@@ -1,5 +1,5 @@
 ﻿using ControleDeFuncionarios.Entities;
-using ControleDeFuncionarios.Repositories;
+using ControleDeFuncionarios.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;

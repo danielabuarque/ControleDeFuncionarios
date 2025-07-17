@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleDeFuncionarios.Repositories
+namespace ControleDeFuncionarios.Interfaces
 {
-    public interface IFuncionarioRepository
+    public interface IEmpresaRepository
     {
-        Task InserirFuncionarioAsync(Funcionario funcionario);
+        Task<List<Empresa>> ObterEmpresasAsync();
     }
 }
