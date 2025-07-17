@@ -2,31 +2,33 @@
 using ControleDeFuncionarios.Entities;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace ControleDeFuncionarios.Repositories
 {
     /// <summary>
     /// Repositório para operação de banco de dados com a entidade Empresa.
     /// </summary>
-    public class EmpresaRepository
+    public class EmpresaRepository : IEmpresaRepository
     {
-        public List<Empresa> ObterEmpresas()
+        private readonly IDbConnection _connection;
+
+        public EmpresaRepository(IDbConnection connection)
+        {
+            _connection = connection;
+        }
+
+        public async Task<List<Empresa>> ObterEmpresasAsync()
         {
             //Escrevendo a consulta que será executada no banco de dados
             var query = @"
-                        SELECT ID, RAZAO_SOCIAL, CNPJ
+                        SELECT ID, RAZAOSOCIAL, CNPJ
                         FROM EMPRESA
-                        ORDER BY RAZAO_SOCIAL
+                        ORDER BY RAZAOSOCIAL
                         ";
 
-            //Criando um objeto da classe de configuração
-            var config = new DBConfiguration();
-
-            //Abrindo conexão com o banco de dados
-            using (var connection = new SqlConnection(config.ConnectionString))
-            {
-                return connection.Query<Empresa>(query).ToList();
-            }
+            var resultado = await _connection.QueryAsync<Empresa>(query);
+            return resultado.ToList();
                 
         }
     }

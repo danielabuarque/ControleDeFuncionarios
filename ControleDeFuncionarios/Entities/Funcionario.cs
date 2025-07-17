@@ -13,11 +13,11 @@ namespace ControleDeFuncionarios.Entities
     {
         #region Propriedades
         public Guid Id { get; set; } = Guid.NewGuid();
-        public string Nome { get; set; } = string.Empty;
-        public string Cpf { get; set; } = string.Empty;
-        public string Matricula { get; set; } = string.Empty;
-        public DateTime DataAdmissao { get; set; }
-        public Guid EmpresaId { get; set; }
+        public string? Nome { get; set; }
+        public string? Cpf { get; set; }
+        public string? Matricula { get; set; }
+        public DateTime? DataAdmissao { get; set; }
+        public Guid? EmpresaId { get; set; }
         #endregion
 
         #region Relacionamentos

@@ -1,5 +1,6 @@
 ﻿using ControleDeFuncionarios.Entities;
 using ControleDeFuncionarios.Repositories;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,20 @@ namespace ControleDeFuncionarios.Controllers
     /// </summary>
     public class FuncionarioController
     {
-        public void CadastrarFuncionario()
+        private readonly IFuncionarioRepository _funcionarioRepository;
+        private readonly IEmpresaRepository _empresaRepository;
+
+        public FuncionarioController(IFuncionarioRepository funcionarioRepository, IEmpresaRepository empresaRepository)
+        {
+            _funcionarioRepository=funcionarioRepository;
+            _empresaRepository = empresaRepository;
+        }
+
+        public async Task CadastrarFuncionarioAsync()
         {
             #region Consultar as empresas cadastradas no banco de dados
 
-            var empresaRepository = new EmpresaRepository();
-            var empresas = empresaRepository.ObterEmpresas();
+            var empresas = await _empresaRepository.ObterEmpresasAsync();
 
             foreach (var emp in empresas)
             {
@@ -49,8 +58,7 @@ namespace ControleDeFuncionarios.Controllers
             Console.Write("ID DA EMPRESA.........: ");
             funcionario.EmpresaId = Guid.Parse(Console.ReadLine());
 
-            var funcionarioRepositorio = new FuncionarioRepository();
-            funcionarioRepositorio.InserirFuncionario(funcionario);
+            await _funcionarioRepository.InserirFuncionarioAsync(funcionario);
 
             Console.WriteLine("\nFUNCIONÁRIO CADASTRADO COM SUCESSO!");
 
