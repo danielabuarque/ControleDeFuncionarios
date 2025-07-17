@@ -1,4 +1,4 @@
-# 🏢 ControleDeFuncionários - Sistema de Gestão de Funcionários
+# 🏢 ControleDeFuncionarios - Sistema de Gestão de Funcionários
 
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
@@ -45,7 +45,7 @@ Console application desenvolvido em C# com arquitetura em camadas para gestão d
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/ControleDeFuncionarios.git
+git clone https://github.com/danielabuarque/ControleDeFuncionarios.git
 
 # 2. Acesse o diretório do projeto
 cd ControleDeFuncionarios
